@@ -1,5 +1,3 @@
-import { StackProps } from "aws-cdk-lib";
-
 export interface SatisfactoryServerProps {
     /**
      * prefix for all resources in this app
