@@ -1,6 +1,6 @@
 import { StackProps } from "aws-cdk-lib";
 
-export interface SatisfactoryServerStackProps extends StackProps {
+export interface SatisfactoryServerProps {
     /**
      * prefix for all resources in this app
      */
@@ -21,7 +21,7 @@ export interface SatisfactoryServerStackProps extends StackProps {
     readonly backupBucket?: string;
     /**
      * VPC ID to use for a `Vpc.fromLookup()` call. Only needs to be used if you have an existing VPC that you intend to use for your server.
-     * @default - The "Default" Vpc is used. This default behavior will fail if the default VPC has been deleted.
+     * @default - A fresh public-only VPC is created.
      */
     readonly vpcId?: string;
     /**

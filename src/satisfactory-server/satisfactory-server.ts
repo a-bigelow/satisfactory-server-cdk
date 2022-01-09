@@ -19,7 +19,7 @@ import { ManagedPolicy, PolicyStatement } from "aws-cdk-lib/aws-iam";
 import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
 import { LambdaRestApi } from "aws-cdk-lib/aws-apigateway";
 import returnSatisfactoryUserData from "./returnSatisfactoryUserData";
-import { SatisfactoryServerStackProps } from "./SatisfactoryServerStackProps";
+import { SatisfactoryServerProps } from "./SatisfactoryServerProps";
 
 /**
  * Represents a fully featured Satisfactory server deployment.
@@ -29,7 +29,7 @@ export class SatisfactoryServer extends Construct {
     public vpc: IVpc;
     public server: Instance;
 
-    constructor(scope: Construct, id: string, props: SatisfactoryServerStackProps) {
+    constructor(scope: Construct, id: string, props: SatisfactoryServerProps) {
         super(scope, id);
 
         // prefix for all resources in this stack
@@ -41,7 +41,10 @@ export class SatisfactoryServer extends Construct {
 
         this.vpc = props.vpcId
             ? Vpc.fromLookup(this, "importedVpc", { vpcId: props.vpcId })
-            : Vpc.fromLookup(this, "defaultVpc", { isDefault: true });
+            : new Vpc(this, `${prefix}Vpc`, {
+                  subnetConfiguration: [{ name: `${prefix}-SatisfactoryPublic`, subnetType: SubnetType.PUBLIC }],
+                  maxAzs: 3,
+              });
 
         const vpcSubnets =
             props.subnetId && props.availabilityZone
@@ -119,7 +122,7 @@ export class SatisfactoryServer extends Construct {
 
         if (props.restartApi) {
             const startServerLambda = new NodejsFunction(this, `${prefix}StartServerLambda`, {
-                entry: "./server-hosting/lambda/index.ts",
+                entry: "./src/lambda/index.ts",
                 description: "Restart game server",
                 timeout: Duration.seconds(10),
                 environment: {
