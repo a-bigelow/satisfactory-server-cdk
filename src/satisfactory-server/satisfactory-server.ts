@@ -20,7 +20,7 @@ import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
 import { LambdaRestApi } from "aws-cdk-lib/aws-apigateway";
 import returnSatisfactoryUserData from './returnSatisfactoryUserData';
 
-interface satisfactoryServerStackProps extends StackProps {
+export interface satisfactoryServerStackProps extends StackProps {
     /**
      * prefix for all resources in this app
      */
