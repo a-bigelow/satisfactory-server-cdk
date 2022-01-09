@@ -15,7 +15,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
       printWidth: 120,
     },
   },
-  release: false,
+  release: true,
 
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
