@@ -1,4 +1,4 @@
-import { Duration, Stack, StackProps } from "aws-cdk-lib";
+import { Duration, Stack } from "aws-cdk-lib";
 import { Bucket } from "aws-cdk-lib/aws-s3";
 import { Construct } from "constructs";
 import {
@@ -25,7 +25,7 @@ import IsatisfactoryServerStackProps from "./IsatisfactoryServerStackProps";
  * Represents a fully featured Satisfactory server deployment.
  * @experimental
  */
-export class satisfactoryServer extends Construct {
+export class SatisfactoryServer extends Construct {
     public vpc: IVpc;
     public server: Instance;
 
