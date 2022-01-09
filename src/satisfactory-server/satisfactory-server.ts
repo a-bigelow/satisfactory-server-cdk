@@ -20,7 +20,7 @@ import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
 import { LambdaRestApi } from "aws-cdk-lib/aws-apigateway";
 import returnSatisfactoryUserData from './returnSatisfactoryUserData';
 
-export interface satisfactoryServerStackProps extends StackProps {
+interface IsatisfactoryServerStackProps extends StackProps {
     /**
      * prefix for all resources in this app
      */
@@ -64,7 +64,7 @@ export class satisfactoryServer extends Construct {
     public vpc: IVpc;
     public server: Instance;
 
-    constructor(scope: Construct, id: string, props: satisfactoryServerStackProps) {
+    constructor(scope: Construct, id: string, props: IsatisfactoryServerStackProps) {
         super(scope, id);
 
         // prefix for all resources in this stack
