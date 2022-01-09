@@ -25,5 +25,5 @@ const project = new awscdk.AwsCdkConstructLibrary({
 project.setScript('format', 'prettier -w "src/**/*.ts"');
 project.setScript('commit', 'cz');
 project.gitignore.addPatterns('.idea/');
-project.addFields( {'resolutions': { "colors": "1.4.0" }})
+// project.addFields( {'resolutions': { "colors": "1.4.0" }})
 project.synth();
