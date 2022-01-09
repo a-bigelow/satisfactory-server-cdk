@@ -58,7 +58,6 @@ interface satisfactoryServerStackProps extends StackProps {
 
 /**
  * Represents a fully featured Satisfactory server deployment.
- * @stability experimental
  * @experimental
  */
 export class satisfactoryServer extends Construct {
