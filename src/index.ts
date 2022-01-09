@@ -1,2 +1,2 @@
-export * from "./satisfactory-server/satisfactory-server";
-export * from "./satisfactory-server/IsatisfactoryServerStackProps"
+export {SatisfactoryServer} from "./satisfactory-server/satisfactory-server";
+export {IsatisfactoryServerStackProps} from "./satisfactory-server/IsatisfactoryServerStackProps"

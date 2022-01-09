@@ -19,7 +19,7 @@ import { ManagedPolicy, PolicyStatement } from "aws-cdk-lib/aws-iam";
 import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
 import { LambdaRestApi } from "aws-cdk-lib/aws-apigateway";
 import returnSatisfactoryUserData from "./returnSatisfactoryUserData";
-import IsatisfactoryServerStackProps from "./IsatisfactoryServerStackProps";
+import { IsatisfactoryServerStackProps } from "./IsatisfactoryServerStackProps";
 
 /**
  * Represents a fully featured Satisfactory server deployment.
