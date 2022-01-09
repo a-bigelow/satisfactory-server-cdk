@@ -16,9 +16,9 @@ import {
     Vpc,
 } from "aws-cdk-lib/aws-ec2";
 import { ManagedPolicy, PolicyStatement } from "aws-cdk-lib/aws-iam";
-import { Asset } from "aws-cdk-lib/aws-s3-assets";
 import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
 import { LambdaRestApi } from "aws-cdk-lib/aws-apigateway";
+import returnSatisfactoryUserData from './returnSatisfactoryUserData';
 
 interface satisfactoryServerStackProps extends StackProps {
     /**
@@ -147,23 +147,7 @@ export class satisfactoryServer extends Construct {
         this.server.userData.addCommands(
             'curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && ./aws/install'
         );
-
-        // package startup script and grant read access to server
-        const startupScript = new Asset(this, `${prefix}InstallAsset`, {
-            path: "./server-hosting/scripts/install.sh",
-        });
-        startupScript.grantRead(this.server.role); // TODO this needs to feed from a function not a separate text file
-
-        // download and execute startup script
-        // with save bucket name as argument
-        const localPath = this.server.userData.addS3DownloadCommand({
-            bucket: startupScript.bucket,
-            bucketKey: startupScript.s3ObjectKey,
-        });
-        this.server.userData.addExecuteFileCommand({
-            filePath: localPath,
-            arguments: `${savesBucket.bucketName} ${props.useExperimentalBuild}`,
-        });
+        this.server.userData.addCommands(returnSatisfactoryUserData())
 
         //////////////////////////////
         // Add api to start server
