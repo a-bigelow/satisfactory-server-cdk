@@ -1,6 +1,6 @@
 import { StackProps } from "aws-cdk-lib";
 
-export interface ISatisfactoryServerStackProps extends StackProps {
+export interface SatisfactoryServerStackProps extends StackProps {
     /**
      * prefix for all resources in this app
      */

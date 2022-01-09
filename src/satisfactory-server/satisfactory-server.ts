@@ -19,7 +19,7 @@ import { ManagedPolicy, PolicyStatement } from "aws-cdk-lib/aws-iam";
 import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
 import { LambdaRestApi } from "aws-cdk-lib/aws-apigateway";
 import returnSatisfactoryUserData from "./returnSatisfactoryUserData";
-import { ISatisfactoryServerStackProps } from "./ISatisfactoryServerStackProps";
+import { SatisfactoryServerStackProps } from "./SatisfactoryServerStackProps";
 
 /**
  * Represents a fully featured Satisfactory server deployment.
@@ -29,7 +29,7 @@ export class SatisfactoryServer extends Construct {
     public vpc: IVpc;
     public server: Instance;
 
-    constructor(scope: Construct, id: string, props: ISatisfactoryServerStackProps) {
+    constructor(scope: Construct, id: string, props: SatisfactoryServerStackProps) {
         super(scope, id);
 
         // prefix for all resources in this stack
