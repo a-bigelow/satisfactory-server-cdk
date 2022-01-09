@@ -26,7 +26,8 @@
     "upgrade-projen": "npx projen upgrade-projen",
     "watch": "npx projen watch",
     "projen": "npx projen",
-    "format": "prettier -w \"src/**/*.ts\""
+    "format": "prettier -w \"src/**/*.ts\"",
+    "commit": "cz"
   },
   "author": {
     "name": "Adam Bigelow",
@@ -37,7 +38,9 @@
     "@types/jest": "^27.4.0",
     "@types/node": "^12",
     "aws-cdk-lib": "2.4.0",
+    "commitizen": "^4.2.4",
     "constructs": "10.0.5",
+    "cz-conventional-changelog": "^3.3.0",
     "jest": "^27.4.7",
     "jest-junit": "^13",
     "jsii": "^1.52.0",
