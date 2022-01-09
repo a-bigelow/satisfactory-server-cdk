@@ -1,2 +1,2 @@
 export {SatisfactoryServer} from "./satisfactory-server/satisfactory-server";
-// export {ISatisfactoryServerStackProps} from "./satisfactory-server/ISatisfactoryServerStackProps"
+export {ISatisfactoryServerStackProps} from "./satisfactory-server/ISatisfactoryServerStackProps";
