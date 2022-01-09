@@ -10,7 +10,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   prettier: true,
   prettierOptions: {
     settings: {
-      useTabs: true,
+      useTabs: false,
       tabWidth: 4,
       printWidth: 120,
     },
@@ -23,4 +23,5 @@ const project = new awscdk.AwsCdkConstructLibrary({
   // packageName: undefined,  /* The "name" in package.json. */
 });
 project.setScript('format', 'prettier -w "src/**/*.ts"');
+project.gitignore.addPatterns('.idea/')
 project.synth();
