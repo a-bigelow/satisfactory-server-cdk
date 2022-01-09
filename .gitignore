@@ -48,4 +48,5 @@ junit.xml
 .jsii
 tsconfig.json
 !/API.md
+.idea/
 !/.github/workflows/upgrade.yml
