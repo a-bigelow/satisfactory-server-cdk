@@ -26,7 +26,8 @@
     "upgrade-projen": "npx projen upgrade-projen",
     "watch": "npx projen watch",
     "projen": "npx projen",
-    "format": "prettier -w \"src/**/*.ts\""
+    "format": "prettier -w \"src/**/*.ts\"",
+    "commit": "cz"
   },
   "author": {
     "name": "Adam Bigelow",
@@ -34,18 +35,21 @@
     "organization": false
   },
   "devDependencies": {
+    "@aws-sdk/client-ec2": "^3.46.0",
     "@types/jest": "^27.4.0",
     "@types/node": "^12",
     "aws-cdk-lib": "2.4.0",
+    "commitizen": "^4.2.4",
     "constructs": "10.0.5",
+    "cz-conventional-changelog": "^3.3.0",
     "jest": "^27.4.7",
     "jest-junit": "^13",
-    "jsii": "^1.52.0",
-    "jsii-diff": "^1.52.0",
-    "jsii-docgen": "^4.2.34",
+    "jsii": "^1.52.1",
+    "jsii-diff": "^1.52.1",
+    "jsii-docgen": "^4.2.35",
     "npm-check-updates": "^12",
     "prettier": "^2.5.1",
-    "projen": "^0.50.12",
+    "projen": "^0.50.15",
     "standard-version": "^9",
     "ts-jest": "^27.1.2",
     "typescript": "^4.5.4"
