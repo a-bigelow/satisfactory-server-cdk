@@ -5,6 +5,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   cdkVersion: "2.4.0",
   defaultReleaseBranch: "main",
   name: "satisfactory-server-cdk",
+  depsUpgrade: false,
   repositoryUrl: "https://github.com/a-bigelow/satisfactory-server-cdk.git",
   eslint: false,
   prettier: true,
